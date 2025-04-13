@@ -34,8 +34,19 @@ import Cook_butcher_1 from "./BhalukaAbout/Cook_butcher_1";
 import DonorCard_1 from "./BhalukaAbout/DonorCard_1";
 import House_rental_1 from "./BhalukaAbout/House_rental_1";
 import UserForm from "./Admin/UserForm";
-import AdminDashboard from "./Admin/AdminDashboard";
+// import AdminDashboard from "./Admin/AdminDashboard";
 import UserList from "./Admin/UserList";
+import Form from "./BckHouseList/Form";
+import HouseList from "./BckHouseList/HouseList";
+import AdminDashboard from "./BckHouseList/AdminDashboard";
+
+
+
+
+
+
+
+
 export default function Router() {
   return (
     <>
@@ -77,8 +88,11 @@ export default function Router() {
       <Route path="/Cook_butcher_1" element={<Cook_butcher_1 />} />
       <Route path="/House_rental_1" element={<House_rental_1 />} />
       <Route path="/UserForm" element={<UserForm />} />
-      <Route path="/AdminDashboard" element={<AdminDashboard />} />
+      {/* <Route path="/AdminDashboard" element={<AdminDashboard />} /> */}
       <Route path="/UserList" element={<UserList />} />
+      <Route path="/Form" element={<Form />} />
+      <Route path="/HouseList" element={<HouseList />} />
+      <Route path="/AdminDashboard" element={<AdminDashboard />} />
 
 
 
