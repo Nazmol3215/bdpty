@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import { Link } from "react-router-dom"; // এটিকে অ্যাড করা হয়েছে
 
-// প্রোফাইল ডেটা (স্ট্যাটিক)
+// স্ট্যাটিক প্রোফাইল ডেটা
 const staticProfiles = [
   { name: "আশরাফুল ইসলাম", phone: "01738296179", profession: "থাই গ্লাস মিস্ত্রি, ইন্টেরিয়র ডিজাইন", address: "শেখ সুপার মার্কেট,ভালুকা মল্লিকবাড়ী রোড,ভালুকা, ময়মনসিংহ।" },
   { name: "খাইরুল ইসলাম", phone: "01954079601", profession: "কাঠমিস্ত্রী", address: "পাড়াগাঁও,সীডষ্টোর বাজার,ভালুকা ময়মনসিংহ" },
@@ -42,7 +43,7 @@ const ProfileCard = ({ profile }) => {
             </tr>
             <tr>
               <td style={{ fontWeight: "bold", backgroundColor: "#f1f1f1" }}>ধরন</td>
-              <td>{profile.profession || profile.type}</td>
+              <td>{profile.profession}</td>
             </tr>
             <tr>
               <td style={{ fontWeight: "bold", backgroundColor: "#f1f1f1" }}>ঠিকানা</td>
@@ -63,37 +64,38 @@ const UserList = () => {
   const [searchName, setSearchName] = useState("");
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/users");
+    // API থেকে ডেটা আনা এবং স্ট্যাটিক ডেটার সাথে যুক্ত করা
+    axios.get("http://localhost:5000/api/users")
+      .then(res => {
         const apiProfiles = res.data.map(user => ({
-          ...user,
-          phone: user.phone || "N/A", // যদি phone না থাকে, fallback
+          name: user.name,
+          phone: user.number,
           profession: user.type,
+          address: user.address,
+          image: user.image
         }));
-        const combinedProfiles = [...staticProfiles, ...apiProfiles];
-        setAllProfiles(combinedProfiles);
 
-        // এলোমেলোভাবে সাজানো
-        const shuffled = [...combinedProfiles].sort(() => 0.5 - Math.random());
+        const combined = [...staticProfiles, ...apiProfiles];
+        setAllProfiles(combined);
+
+        // এলোমেলো করে সেট করা
+        const shuffled = [...combined].sort(() => 0.5 - Math.random());
         setShuffledProfiles(shuffled);
-      } catch (error) {
-        console.error("Error fetching profiles:", error);
-        // শুধু স্ট্যাটিক ডেটা দেখানো হবে fallback হিসেবে
+      })
+      .catch(err => {
+        console.error("Error fetching users:", err);
+        // শুধু স্ট্যাটিক ডেটা যদি API কাজ না করে
         const shuffled = [...staticProfiles].sort(() => 0.5 - Math.random());
         setAllProfiles(staticProfiles);
         setShuffledProfiles(shuffled);
-      }
-    };
-
-    fetchData();
+      });
   }, []);
 
-  const uniqueProfessions = [...new Set(allProfiles.map(p => p.profession || p.type))];
+  const uniqueProfessions = [...new Set(allProfiles.map(p => p.profession))];
   const uniqueLocations = [...new Set(allProfiles.map(p => p.address))];
 
   const filteredProfiles = shuffledProfiles.filter(p => {
-    const matchProfession = professionFilter === "" || (p.profession || p.type) === professionFilter;
+    const matchProfession = professionFilter === "" || p.profession === professionFilter;
     const matchLocation = locationFilter === "" || p.address === locationFilter;
     const matchName = searchName === "" || p.name.toLowerCase().includes(searchName.toLowerCase());
     return matchProfession && matchLocation && matchName;
@@ -101,6 +103,14 @@ const UserList = () => {
 
   return (
     <div className="container mt-4">
+
+      {/* উপরের লিঙ্ক টেক্সট */}
+      <div className="mb-4 text-center">
+        <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+        মিস্ত্রীর প্রফাইল লিস্ট করতে এখানে <Link to="/UserForm">ক্লীক</Link> করুন
+        </p>
+      </div>
+
       {/* ফিল্টার UI */}
       <div className="row mb-3">
         <div className="col-md-4 mb-2">

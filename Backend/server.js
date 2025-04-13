@@ -39,6 +39,7 @@ mongoose.connect(process.env.MONGO_URI)
 const userSchema = new mongoose.Schema({
   image: String,
   name: String,
+  number: Number,
   type: String,
   address: String
 });

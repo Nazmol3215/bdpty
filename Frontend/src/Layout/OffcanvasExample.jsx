@@ -134,8 +134,8 @@ function OffcanvasExample() {
                   <Nav.Link as={Link} to="/courier-service" style={{ fontSize: '.9rem', color: '#007bff' }}>
                     কুরিয়ার সার্ভিস
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/fire-service" style={{ fontSize: '.9rem', color: '#007bff' }}>
-                    ফায়ার সার্ভিস
+                  <Nav.Link as={Link} to="/AdminDashboard" style={{ fontSize: '.9rem', color: '#007bff' }}>
+                  লগইন
                   </Nav.Link>
                   <NavDropdown
                     title="Service"
