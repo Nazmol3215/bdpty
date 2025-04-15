@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom"; // নতুন লাইন
 
-// প্রোফাইল ডেটা
-const profiles = [
-
+// ম্যানুয়ালি এড করা প্রোফাইল
+const manualProfiles = [
+  
   { name: 'নুরুল ইসলাম', phone: '01709158834', profession: 'কসাই', address: 'তামাট বাজার' },
   { name: 'লুৎফর রহমান', phone: '01762152244', profession: 'কসাই', address: 'নারাঙ্গি উথুরা, ভালুকা' },
   { name: 'জহির', phone: '01709158834', profession: 'বাবুর্চি', address: 'ভালুকা' },
@@ -63,7 +65,7 @@ const ProfileCard = ({ profile }) => {
             </tr>
             <tr>
               <td style={{ fontWeight: "bold", backgroundColor: "#f1f1f1" }}>ধরন</td>
-              <td>{profile.profession}</td>
+              <td>{profile.profession || profile.type}</td>
             </tr>
             <tr>
               <td style={{ fontWeight: "bold", backgroundColor: "#f1f1f1" }}>ঠিকানা</td>
@@ -76,85 +78,111 @@ const ProfileCard = ({ profile }) => {
   );
 };
 
-const Cook_butcher = () => {
-  const [shuffledProfiles, setShuffledProfiles] = useState([]);
+const Kjtuhigbniu = () => {
+  const [allProfiles, setAllProfiles] = useState([]);
+  const [filteredProfiles, setFilteredProfiles] = useState([]);
   const [professionFilter, setProfessionFilter] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
   const [searchName, setSearchName] = useState("");
 
-  // এলোমেলোভাবে প্রোফাইল লোড
   useEffect(() => {
-    const shuffled = [...profiles].sort(() => 0.5 - Math.random());
-    setShuffledProfiles(shuffled);
+    const fetchUsers = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/api/users');
+        const mongoUsers = res.data.map(user => ({
+          name: user.imageName,
+          phone: user.phone,
+          profession: user.type,
+          address: user.address,
+          image: user.imageUrl
+        }));
+        const combined = [...manualProfiles, ...mongoUsers].sort(() => 0.5 - Math.random());
+        setAllProfiles(combined);
+      } catch (err) {
+        console.error("ডেটা আনতে সমস্যা হয়েছে:", err);
+        setAllProfiles([...manualProfiles]); // fallback only manual profiles
+      }
+    };
+
+    fetchUsers();
   }, []);
 
-  // ইউনিক প্রফেশন ও লোকেশন ফিল্টারের জন্য
-  const uniqueProfessions = [...new Set(profiles.map(p => p.profession))];
-  const uniqueLocations = [...new Set(profiles.map(p => p.address))];
+  useEffect(() => {
+    const filtered = allProfiles.filter(p => {
+      const matchProfession = professionFilter === "" || p.profession === professionFilter;
+      const matchLocation = locationFilter === "" || p.address === locationFilter;
+      const matchName = searchName === "" || p.name.toLowerCase().includes(searchName.toLowerCase());
+      return matchProfession && matchLocation && matchName;
+    });
+    setFilteredProfiles(filtered);
+  }, [allProfiles, professionFilter, locationFilter, searchName]);
 
-  // ফিল্টার অ্যাপ্লাই করা
-  const filteredProfiles = shuffledProfiles.filter(p => {
-    const matchProfession = professionFilter === "" || p.profession === professionFilter;
-    const matchLocation = locationFilter === "" || p.address === locationFilter;
-    const matchName = searchName === "" || p.name.toLowerCase().includes(searchName.toLowerCase());
-
-    return matchProfession && matchLocation && matchName;
-  });
+  const uniqueProfessions = [...new Set(allProfiles.map(p => p.profession))];
+  const uniqueLocations = [...new Set(allProfiles.map(p => p.address))];
 
   return (
-    <div className="container mt-4">
-      {/* ফিল্টার UI */}
-      <div className="row mb-3">
-        <div className="col-md-4 mb-2">
-          <select
-            className="form-select"
-            value={professionFilter}
-            onChange={e => setProfessionFilter(e.target.value)}
-          >
-            <option value="">সব পেশা</option>
-            {uniqueProfessions.map((prof, i) => (
-              <option key={i} value={prof}>{prof}</option>
-            ))}
-          </select>
-        </div>
-        <div className="col-md-4 mb-2">
-          <select
-            className="form-select"
-            value={locationFilter}
-            onChange={e => setLocationFilter(e.target.value)}
-          >
-            <option value="">সব ঠিকানা</option>
-            {uniqueLocations.map((addr, i) => (
-              <option key={i} value={addr}>{addr}</option>
-            ))}
-          </select>
-        </div>
-        <div className="col-md-4 mb-2">
-          <input 
-            type="text"
-            className="form-control"
-            placeholder="নাম দিয়ে খুঁজুন"
-            value={searchName}
-            onChange={e => setSearchName(e.target.value)}
-          />
-        </div>
+    <>
+      {/* উপরের টেক্সট */}
+      <div className="text-center mt-3 mb-4">
+        <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+          লিস্ট করতে এখানে <Link to="/MestiForm" style={{ color: "#007bff", textDecoration: "underline" }}>ক্লীক</Link> করুন
+        </span>
       </div>
 
-      {/* প্রোফাইল কার্ডগুলো */}
-      <div className="row g-3">
-        {filteredProfiles.map((profile, index) => (
-          <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
-            <ProfileCard profile={profile} />
+      <div className="container mt-4">
+        {/* ফিল্টার UI */}
+        <div className="row mb-3">
+          <div className="col-md-4 mb-2">
+            <select
+              className="form-select"
+              value={professionFilter}
+              onChange={e => setProfessionFilter(e.target.value)}
+            >
+              <option value="">সব পেশা</option>
+              {uniqueProfessions.map((prof, i) => (
+                <option key={i} value={prof}>{prof}</option>
+              ))}
+            </select>
           </div>
-        ))}
-        {filteredProfiles.length === 0 && (
-          <div className="text-center text-muted py-5">
-            <h5>কোনো প্রোফাইল খুঁজে পাওয়া যায়নি</h5>
+          <div className="col-md-4 mb-2">
+            <select
+              className="form-select"
+              value={locationFilter}
+              onChange={e => setLocationFilter(e.target.value)}
+            >
+              <option value="">সব ঠিকানা</option>
+              {uniqueLocations.map((addr, i) => (
+                <option key={i} value={addr}>{addr}</option>
+              ))}
+            </select>
           </div>
-        )}
+          <div className="col-md-4 mb-2">
+            <input 
+              type="text"
+              className="form-control"
+              placeholder="নাম দিয়ে খুঁজুন"
+              value={searchName}
+              onChange={e => setSearchName(e.target.value)}
+            />
+          </div>
+        </div>
+
+        {/* প্রোফাইল কার্ডগুলো */}
+        <div className="row g-3">
+          {filteredProfiles.map((profile, index) => (
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
+              <ProfileCard profile={profile} />
+            </div>
+          ))}
+          {filteredProfiles.length === 0 && (
+            <div className="text-center text-muted py-5">
+              <h5>কোনো প্রোফাইল খুঁজে পাওয়া যায়নি</h5>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Cook_butcher;
+export default Kjtuhigbniu;

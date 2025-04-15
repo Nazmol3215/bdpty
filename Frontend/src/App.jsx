@@ -36,14 +36,12 @@ import House_rental_1 from "./BhalukaAbout/House_rental_1";
 import UserForm from "./Admin/UserForm";
 // import AdminDashboard from "./Admin/AdminDashboard";
 import UserList from "./Admin/UserList";
-import Form from "./BckHouseList/Form";
-import HouseList from "./BckHouseList/HouseList";
 import AdminDashboard from "./BckHouseList/AdminDashboard";
-
-
-
-
-
+import House_rental from "./BckHouseList/House_rental";
+import House_rental_Form from "./BckHouseList/House_rental_Form";
+import Kjtuhigbniu from "./Cook_butcher/Kjtuhigbniu";
+import MestiForm from "./Cook_butcher/MestiForm";
+import AdminPanel from "./Cook_butcher/AdminPanel";
 
 
 
@@ -90,9 +88,12 @@ export default function Router() {
       <Route path="/UserForm" element={<UserForm />} />
       {/* <Route path="/AdminDashboard" element={<AdminDashboard />} /> */}
       <Route path="/UserList" element={<UserList />} />
-      <Route path="/Form" element={<Form />} />
-      <Route path="/HouseList" element={<HouseList />} />
+      <Route path="/House_rental_Form" element={<House_rental_Form />} />
+      <Route path="/House_rental" element={<House_rental />} />
       <Route path="/AdminDashboard" element={<AdminDashboard />} />
+      <Route path="/Kjtuhigbniu" element={<Kjtuhigbniu />} />
+      <Route path="/MestiForm" element={<MestiForm />} />
+      <Route path="/AdminPanel" element={<AdminPanel />} />
 
 
 
