@@ -6,6 +6,10 @@ require("dotenv").config();
 const userRoutes = require("./routes/userRoutes");
 const houseRoutes = require("./routes/houseRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const customUserRoutes = require("./routes/customUserRoutes");
+const memberRoutes = require('./routes/memberRoutes');
+const profileRoutes = require("./routes/profileRoutes");
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,8 +27,16 @@ mongoose
 app.use("/api/users", userRoutes);
 app.use("/api/houses", houseRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/custom-users", customUserRoutes);
+app.use('/api/members', memberRoutes);
+app.use("/api/profiles", profileRoutes);
+
 
 // Server Start
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
+
+
+
+

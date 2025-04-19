@@ -1,5 +1,4 @@
 import React from "react";
-// import { BrowserRouter, Routes, Route } from "react-router";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
@@ -36,15 +35,20 @@ import House_rental_1 from "./BhalukaAbout/House_rental_1";
 import UserForm from "./Admin/UserForm";
 // import AdminDashboard from "./Admin/AdminDashboard";
 import UserList from "./Admin/UserList";
-import AdminDashboard from "./BckHouseList/AdminDashboard";
+// import AdminDashboard from "./BckHouseList/AdminDashboard";
 import House_rental from "./BckHouseList/House_rental";
 import House_rental_Form from "./BckHouseList/House_rental_Form";
 import Kjtuhigbniu from "./Cook_butcher/Kjtuhigbniu";
 import MestiForm from "./Cook_butcher/MestiForm";
 import AdminPanel from "./Cook_butcher/AdminPanel";
-
-
-
+import Tesxt from "./BhalukaAbout/Tesxt";
+import CustomUserForm from "./CustomUserForm/CustomUserForm";
+import CustomUserList from "./CustomUserForm/CustomUserList";
+import MemberForm from "./Onelawy/MemberForm";  
+import MemberList from "./Onelawy/MemberList";
+import ProfileList from "./Cleaning/ProfileList";
+import Cleaning_staff_1 from "./BhalukaAbout/cleaning_staff_1";
+import AdminDashboard from "./Admin/AdminDashboard";
 export default function Router() {
   return (
     <>
@@ -90,10 +94,18 @@ export default function Router() {
       <Route path="/UserList" element={<UserList />} />
       <Route path="/House_rental_Form" element={<House_rental_Form />} />
       <Route path="/House_rental" element={<House_rental />} />
-      <Route path="/AdminDashboard" element={<AdminDashboard />} />
+      {/* <Route path="/AdminDashboard" element={<AdminDashboard />} /> */}
       <Route path="/Kjtuhigbniu" element={<Kjtuhigbniu />} />
       <Route path="/MestiForm" element={<MestiForm />} />
       <Route path="/AdminPanel" element={<AdminPanel />} />
+      <Route path="/Tesxt" element={<Tesxt />} />
+      <Route path="/CustomUserForm" element={<CustomUserForm />} />
+      <Route path="/CustomUserList" element={<CustomUserList />} />
+      <Route path="/MemberForm" element={<MemberForm />} />
+      <Route path="/MemberList" element={<MemberList />} />
+      <Route path="/ProfileList" element={<ProfileList />} />
+      <Route path="/Cleaning_staff_1" element={<Cleaning_staff_1 />} />
+      <Route path="/AdminDashboard" element={<AdminDashboard />} />
 
 
 

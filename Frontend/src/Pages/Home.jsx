@@ -10,7 +10,6 @@ import ProductCard from "../FirstPages/ProductCard";
 import ServiceGrid from "../BhalukaAbout/ServiceGrid";
 
 
-
 export default function Home() {
   return (
     <div>

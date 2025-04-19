@@ -13,9 +13,9 @@ const ServiceGrid = () => {
     },
     {
       items: [
+        { name: <Link to="/Cleaning_staff_1" style={{ textDecoration: 'none', color: 'inherit' }}>ক্লিনিং স্টাফ </Link> },
         { name: <Link to="/ValukaMunicipality_1" style={{ textDecoration: 'none', color: 'inherit' }}>পৌরসভা </Link> },
         { name: <Link to="/ProfileCardGrid" style={{ textDecoration: 'none', color: 'inherit' }} >থানা পুলিশ </Link> },
-        { name: <Link to="/UpazilaAdmin_1" style={{ textDecoration: 'none', color: 'inherit' }} >উপজেলা প্রশাসন</Link> },
       ],
     },
     {
@@ -44,12 +44,14 @@ const ServiceGrid = () => {
         { name: <Link to="/Bhaluka_Upazila_1" style={{ textDecoration: 'none', color: 'inherit' }} >উপজেলা</Link> },
         { name: <Link to="/CardGrid" style={{ textDecoration: 'none', color: 'inherit' }}>সকল মিস্ত্রী</Link> },
         { name: <Link to="/Famous_person" style={{ textDecoration: 'none', color: 'inherit' }} >প্রসিদ্ধ ব্যক্তি</Link> },
+        { name: <Link to="/UpazilaAdmin_1" style={{ textDecoration: 'none', color: 'inherit' }} >উপজেলা প্রশাসন</Link> },
+
       ],
     },
   ];
 
   return (
-    <div className="container">
+    <div className="container" >
       {services.map((serviceCategory, index) => (
         <div key={index} className="mb-5">
           <div className="row">
@@ -70,7 +72,7 @@ const ServiceGrid = () => {
                 >
                   <div className="card-body">
                     <h5 style={{ fontSize: '12px', fontWeight: 'bold', color: '#343a40' }}>{item.name}</h5>
-                  </div>
+                  </div> 
                 </div>
               </div>
             ))}
