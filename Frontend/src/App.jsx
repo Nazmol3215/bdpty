@@ -9,7 +9,6 @@ import Profile from "./Porfile/Porfile";
 import FirtOne from "./Porfile/FirtOne";
 import AboutUs from "./Porfile/AboutUs";
 import Phot from "./Porfile/PhotosGrid";
-import ProfileCardGrid from "./police/police";
 import Doctors_Valukka from "./BhalukaAbout/Doctors_Valukka";
 import Ambulance from "./BhalukaAbout/Ambulance";
 import Famous_person from "./BhalukaAbout/Famous_person";
@@ -49,14 +48,17 @@ import MemberList from "./Onelawy/MemberList";
 import ProfileList from "./Cleaning/ProfileList";
 import Cleaning_staff_1 from "./BhalukaAbout/cleaning_staff_1";
 import AdminDashboard from "./Admin/AdminDashboard";
+import CleaningForm from "./Cleaning/CleaningForm";
+import Police_1 from "./BhalukaAbout/Police_1";
+import ProfileCardGrid from "./BhalukaAbout/police";
+import DonorForm from "./Tim/DonorForm";
+import DonorList from "./Tim/DonorList";
+
 export default function Router() {
   return (
     <>
-
-
     <BrowserRouter>
     <Routes>
-      
       <Route path="/" element={<Home />} />
       <Route path="/Contact" element={<Contact />} />
       <Route path="/Profile" element={<Profile />} />
@@ -67,7 +69,6 @@ export default function Router() {
       <Route path="/DetaisPages" element={<DetaisPages />} />
       <Route path="/PropertyLocationMap" element={<PropertyLocationMap />} />
       <Route path="/Bhaluka_Upazila_1" element={<Bhaluka_Upazila_1 />} />
-      <Route path="/ProfileCardGrid" element={<ProfileCardGrid />} />
       <Route path="/Doctors_Valukka" element={<Doctors_Valukka />} />
       <Route path="/Ambulance" element={<Ambulance />} />
       <Route path="/Famous_person" element={<Famous_person />} />
@@ -106,6 +107,11 @@ export default function Router() {
       <Route path="/ProfileList" element={<ProfileList />} />
       <Route path="/Cleaning_staff_1" element={<Cleaning_staff_1 />} />
       <Route path="/AdminDashboard" element={<AdminDashboard />} />
+      <Route path="/CleaningForm" element={<CleaningForm />} />
+      <Route path="/Police_1" element={<Police_1 />} />
+      <Route path="/ProfileCardGrid" element={<ProfileCardGrid />} />
+      <Route path="/DonorForm" element={<DonorForm />} />
+      <Route path="/DonorList" element={<DonorList />} />
 
 
 

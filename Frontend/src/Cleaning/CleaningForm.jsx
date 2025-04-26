@@ -30,7 +30,7 @@ const InputField = ({ name, value, onChange, placeholder, icon }) => (
   </div>
 );
 
-const Form = () => {
+const CleaningForm = () => {
   const [data, setData] = useState({
     imageLink: '',
     imageName: '',
@@ -92,7 +92,7 @@ const Form = () => {
         color: 'white'
       }}>
         <button
-          onClick={() => window.location.href = "/all-profiles"}
+          onClick={() => window.location.href = "/Cleaning_staff_1"}
           style={{
             marginBottom: '15px',
             width: '100%',
@@ -159,4 +159,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default CleaningForm;

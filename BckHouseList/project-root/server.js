@@ -9,7 +9,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const customUserRoutes = require("./routes/customUserRoutes");
 const memberRoutes = require('./routes/memberRoutes');
 const profileRoutes = require("./routes/profileRoutes");
-
+const donorRoutes = require('./routes/donorRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -30,6 +30,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/custom-users", customUserRoutes);
 app.use('/api/members', memberRoutes);
 app.use("/api/profiles", profileRoutes);
+app.use('/api', donorRoutes);
 
 
 // Server Start

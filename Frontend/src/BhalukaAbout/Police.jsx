@@ -1,5 +1,5 @@
 import React from 'react';
-import jhkufvdsx from '../Images/i.png';
+import jhkufvdsx from '../Images/im.png.webp';
 
 const ProfileImage = () => {
   const imageStyle = {

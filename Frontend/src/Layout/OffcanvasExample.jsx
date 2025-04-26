@@ -43,30 +43,20 @@ function OffcanvasExample() {
                   <Nav.Link as={Link} to="/home" style={{ fontSize: '.9rem', color: '#007bff' }}>
                     হোম
                   </Nav.Link>
-
-                  <NavDropdown
-                    title="পার্লার"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                    style={{ color: '#007bff' }}
-                  >
-                    <NavDropdown.Item as={Link} to="/JournalistsList" style={{ fontSize: '.9rem', color: '#007bff' }}>বিউটি পার্লার</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/JournalistsList" style={{ fontSize: '.9rem', color: '#007bff' }}> জেন্টস পার্লার</NavDropdown.Item>
-                  </NavDropdown>
-
                   <Nav.Link as={Link} to="/JournalistsList" style={{ fontSize: '.9rem', color: '#007bff' }}>
                     গাড়ি ভাড়া
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/schools" style={{ fontSize: '.9rem', color: '#007bff' }}>
-                    শিক্ষাপ্রতিষ্ঠান
+                  <Nav.Link as={Link} to="/Mestiri_1" style={{ fontSize: '.9rem', color: '#007bff' }}>
+                  সকল মিস্ত্রী
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/journalists" style={{ fontSize: '.9rem', color: '#007bff' }}>
-                    সাংবাদিক
+                  <Nav.Link as={Link} to="/House_rental_1" style={{ fontSize: '.9rem', color: '#007bff' }}>
+                  বাসা ভাড়া
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/lawyers" style={{ fontSize: '.9rem', color: '#007bff' }}>
-                    আইনজীবী
+                  <Nav.Link as={Link} to="/Cook_butcher_1" style={{ fontSize: '.9rem', color: '#007bff' }}>
+                  কসাই বাবুর্চি
                   </Nav.Link>
                   <Nav.Link as={Link} to="/attractions" style={{ fontSize: '.9rem', color: '#007bff' }}>
-                    ভালুকার দর্শনীয় স্থান
+                  ক্লিনিং স্টাফ
                   </Nav.Link>
                   <Nav.Link as={Link} to="/restaurants" style={{ fontSize: '.9rem', color: '#007bff' }}>
                     রেস্টুরেন্ট
@@ -104,7 +94,7 @@ function OffcanvasExample() {
                   <Nav.Link as={Link} to="/hospital" style={{ fontSize: '.9rem', color: '#007bff' }}>
                     ভালুকার হাসপাতাল
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/ambulance" style={{ fontSize: '.9rem', color: '#007bff' }}>
+                  <Nav.Link as={Link} to="/Ambulance_1" style={{ fontSize: '.9rem', color: '#007bff' }}>
                     এম্বুলেন্স
                   </Nav.Link>
                   <Nav.Link as={Link} to="/doctors" style={{ fontSize: '.9rem', color: '#007bff' }}>
@@ -137,6 +127,17 @@ function OffcanvasExample() {
                   <Nav.Link as={Link} to="/AdminDashboard" style={{ fontSize: '.9rem', color: '#007bff' }}>
                   লগইন
                   </Nav.Link>
+
+                  <NavDropdown
+                    title="পার্লার"
+                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                    style={{ color: '#007bff' }}
+                  >
+                    <NavDropdown.Item as={Link} to="/JournalistsList" style={{ fontSize: '.9rem', color: '#007bff' }}>বিউটি পার্লার</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/JournalistsList" style={{ fontSize: '.9rem', color: '#007bff' }}> জেন্টস পার্লার</NavDropdown.Item>
+                  </NavDropdown>
+
+
                   <NavDropdown
                     title="Service"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -158,3 +159,6 @@ function OffcanvasExample() {
 }
 
 export default OffcanvasExample;
+
+
+

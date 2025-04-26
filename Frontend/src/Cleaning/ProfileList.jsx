@@ -5,15 +5,23 @@ import { Link } from "react-router-dom";
 
 // ম্যানুয়ালি এড করা প্রোফাইল
 const manualProfiles = [
-  { name: 'কেবিএম হাদিউজ্জামান সেলিম',  phone: '+8801711-386831', profession: "কিডনি রোগ বিশেষজ্ঞ", email: 'mushfiqur.rahman@example.com' },
+  { name: 'কেবিএম হাদিউজ্জামান সেলিম', phone: '+8801711-386831', profession: "কিডনি রোগ বিশেষজ্ঞ", email: 'mushfiqur.rahman@example.com' },
   { name: "অধ্যাপক (সহঃ) ডাঃ মুশফিকুর রহমান", phone: "01712-288455", profession: "নবজাতক ও শিশু রোগ বিশেষজ্ঞ", email: "mushfiqur.rahman@example.com" },
+  { name: "অধ্যাপক (সহঃ) ডাঃ আশীষ কুমার রায়", phone: "01710-077111", profession: "হৃদরোগ ও মেডিসিন বিশেষজ্ঞ", email: "ashish.roy@example.com" },
+  { name: "অধ্যাপক (সহঃ) ডাঃ আশীষ কুমার রায়", phone: "01710-077111", profession: "হৃদরোগ ও মেডিসিন বিশেষজ্ঞ", email: "ashish.roy@example.com" },
+  { name: "অধ্যাপক (সহঃ) ডাঃ আশীষ কুমার রায়", phone: "01710-077111", profession: "হৃদরোগ ও মেডিসিন বিশেষজ্ঞ", email: "ashish.roy@example.com" },
+  { name: "অধ্যাপক (সহঃ) ডাঃ আশীষ কুমার রায়", phone: "01710-077111", profession: "হৃদরোগ ও মেডিসিন বিশেষজ্ঞ", email: "ashish.roy@example.com" },
+  { name: "অধ্যাপক (সহঃ) ডাঃ আশীষ কুমার রায়", phone: "01710-077111", profession: "হৃদরোগ ও মেডিসিন বিশেষজ্ঞ", email: "ashish.roy@example.com" },
+  { name: "অধ্যাপক (সহঃ) ডাঃ আশীষ কুমার রায়", phone: "01710-077111", profession: "হৃদরোগ ও মেডিসিন বিশেষজ্ঞ", email: "ashish.roy@example.com" },
   { name: "অধ্যাপক (সহঃ) ডাঃ আশীষ কুমার রায়", phone: "01710-077111", profession: "হৃদরোগ ও মেডিসিন বিশেষজ্ঞ", email: "ashish.roy@example.com" },
 ];
 
+// কল করার ফাংশন
 const callPhone = (phone) => {
   window.location.href = `tel:${phone}`;
 };
 
+// প্রোফাইল কার্ড কম্পোনেন্ট
 const ProfileCard = ({ profile }) => {
   return (
     <div className="card text-center shadow-sm w-100" style={{ borderRadius: "15px", padding: "1px", backgroundColor: "#f9f9f9", border: "1px solid #ddd" }}>
@@ -55,6 +63,7 @@ const ProfileCard = ({ profile }) => {
   );
 };
 
+// প্রোফাইল লিস্ট কম্পোনেন্ট
 const ProfileList = () => {
   const [allProfiles, setAllProfiles] = useState([]);
   const [filteredProfiles, setFilteredProfiles] = useState([]);
@@ -62,10 +71,10 @@ const ProfileList = () => {
   const [locationFilter, setLocationFilter] = useState("");
   const [searchName, setSearchName] = useState("");
 
-  useEffect(() => { 
+  useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/profiles'); // ProfileList.jsx এর API
+        const res = await axios.get('http://localhost:5000/api/profiles');
         const mongoProfiles = res.data.map(profile => ({
           name: profile.imageName,
           phone: profile.phone,
@@ -77,7 +86,7 @@ const ProfileList = () => {
         setAllProfiles(combined);
       } catch (err) {
         console.error("ডেটা আনতে সমস্যা হয়েছে:", err);
-        setAllProfiles([...manualProfiles]); // fallback
+        setAllProfiles([...manualProfiles]);
       }
     };
 
@@ -101,8 +110,8 @@ const ProfileList = () => {
     <>
       <div className="text-center mt-3 mb-4">
         <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
-        আপনার এলাকার ক্লিনিং স্টাফ খুঁজুন <br />
-        ক্লিনিং স্টাফ হিসেবে লিস্ট করতে এখানে <Link to="/CustomUserForm" style={{ color: "#007bff", textDecoration: "underline" }}>ক্লীক</Link> করুন
+          আপনার এলাকার ক্লিনিং স্টাফ খুঁজুন <br />
+          ক্লিনিং স্টাফ হিসেবে লিস্ট করতে এখানে <Link to="/CustomUserForm" style={{ color: "#007bff", textDecoration: "underline" }}>ক্লীক</Link> করুন
         </span>
       </div>
 

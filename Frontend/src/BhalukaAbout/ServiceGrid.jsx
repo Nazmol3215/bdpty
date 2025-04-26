@@ -5,17 +5,16 @@ const ServiceGrid = () => {
   const services = [
     {
       items: [
-
+        { name: <Link to="/DonorCard_1" style={{ textDecoration: 'none', color: 'inherit' }} >ব্লাড ডোনার</Link> },
         { name: <Link to="/Mestiri_1" style={{ textDecoration: 'none', color: 'inherit' }} >সকল মিস্ত্রী</Link> },
         { name: <Link to="/House_rental_1" style={{ textDecoration: 'none', color: 'inherit' }} >বাসা ভাড়া</Link> },
-        { name: <Link to="/Cook_butcher_1" style={{ textDecoration: 'none', color: 'inherit' }} >কসাই বাবুর্চি</Link> },
       ],
     },
     {
       items: [
+        { name: <Link to="/Cook_butcher_1" style={{ textDecoration: 'none', color: 'inherit' }} >কসাই বাবুর্চি</Link> },
         { name: <Link to="/Cleaning_staff_1" style={{ textDecoration: 'none', color: 'inherit' }}>ক্লিনিং স্টাফ </Link> },
-        { name: <Link to="/ValukaMunicipality_1" style={{ textDecoration: 'none', color: 'inherit' }}>পৌরসভা </Link> },
-        { name: <Link to="/ProfileCardGrid" style={{ textDecoration: 'none', color: 'inherit' }} >থানা পুলিশ </Link> },
+        { name: <Link to="/Hospitals_Bhaluka_1" style={{ textDecoration: 'none', color: 'inherit' }}>হাসপাতাল</Link> },
       ],
     },
     {
@@ -27,22 +26,21 @@ const ServiceGrid = () => {
     },
     {
       items: [
-        { name: <Link to="/Hospitals_Bhaluka_1" style={{ textDecoration: 'none', color: 'inherit' }}>হাসপাতাল</Link> },
+        { name: <Link to="/ValukaMunicipality_1" style={{ textDecoration: 'none', color: 'inherit' }}>পৌরসভা </Link> },
         { name: <Link to="/JournalistsList_1" style={{ textDecoration: 'none', color: 'inherit' }} >সাংবাদিকগন</Link> },
         { name: <Link to="/Ambulance" style={{ textDecoration: 'none', color: 'inherit' }} >এ্যাম্বুলেন্স</Link> },
       ],
     },
     {
       items: [
+        { name: <Link to="/Cleaning_staff_1" style={{ textDecoration: 'none', color: 'inherit' }} >থানা পুলিশ </Link> },
         { name: <Link to="/Fire_service_1" style={{ textDecoration: 'none', color: 'inherit' }} >ফায়ার সার্ভিস</Link> },
         { name: <Link to="/Lawyer_1" style={{ textDecoration: 'none', color: 'inherit' }} >আনজীবী</Link> },
-        { name: <Link to="/DonorCard_1" style={{ textDecoration: 'none', color: 'inherit' }} >ব্লাড ডোনার</Link> },
       ],
     },
     {
       items: [
         { name: <Link to="/Bhaluka_Upazila_1" style={{ textDecoration: 'none', color: 'inherit' }} >উপজেলা</Link> },
-        { name: <Link to="/CardGrid" style={{ textDecoration: 'none', color: 'inherit' }}>সকল মিস্ত্রী</Link> },
         { name: <Link to="/Famous_person" style={{ textDecoration: 'none', color: 'inherit' }} >প্রসিদ্ধ ব্যক্তি</Link> },
         { name: <Link to="/UpazilaAdmin_1" style={{ textDecoration: 'none', color: 'inherit' }} >উপজেলা প্রশাসন</Link> },
 
