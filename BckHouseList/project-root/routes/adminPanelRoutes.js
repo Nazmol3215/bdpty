@@ -6,7 +6,8 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 // Middleware: Password check
 const checkPassword = (req, res, next) => {
-  const { password } = req.body;
+  const password = req.headers["x-admin-password"]; // পাসওয়ার্ড হেডার থেকে নেয়া
+  console.log('Received password:', password);  // পাসওয়ার্ড লগ করা
   if (password === ADMIN_PASSWORD) {
     next();
   } else {

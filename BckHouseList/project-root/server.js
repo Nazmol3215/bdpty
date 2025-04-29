@@ -5,11 +5,17 @@ require("dotenv").config();
 
 const userRoutes = require("./routes/userRoutes");
 const houseRoutes = require("./routes/houseRoutes");
-const adminRoutes = require("./routes/adminRoutes");
+const adminPanelRoutes = require("./routes/adminPanelRoutes"); // সঠিক নাম
 const customUserRoutes = require("./routes/customUserRoutes");
 const memberRoutes = require('./routes/memberRoutes');
 const profileRoutes = require("./routes/profileRoutes");
 const donorRoutes = require('./routes/donorRoutes');
+const bankRoutes = require('./routes/bankRoutes');
+const adminRoutes = require('./routes/BankadminRoutes');
+
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,18 +32,15 @@ mongoose
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/houses", houseRoutes);
-app.use("/api/admin", adminRoutes);
+app.use("/api/admin", adminPanelRoutes); // সঠিক নাম
 app.use("/api/custom-users", customUserRoutes);
 app.use('/api/members', memberRoutes);
 app.use("/api/profiles", profileRoutes);
 app.use('/api', donorRoutes);
-
+app.use('/bank', bankRoutes);
+app.use('/admin', adminRoutes);
 
 // Server Start
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-
-
-
-

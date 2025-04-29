@@ -33,7 +33,9 @@ const AdminPanel = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/users/${id}`, {
-        headers: { "x-admin-password": adminPassword },
+        headers: {
+          "x-admin-password": password,  // পাসওয়ার্ড হেডারে পাঠানো
+        },
       });
       fetchUsers();
     } catch (err) {
@@ -60,7 +62,7 @@ const AdminPanel = () => {
         `http://localhost:5000/api/users/${id}`,
         editData[id],
         {
-          headers: { "x-admin-password": adminPassword },
+          headers: { "x-admin-password": password },  // পাসওয়ার্ড হেডারে পাঠানো
         }
       );
       fetchUsers();
