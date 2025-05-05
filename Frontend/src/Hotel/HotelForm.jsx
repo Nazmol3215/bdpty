@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function HotelForm() {
+export default function BankForm() {
   const [formData, setFormData] = useState({
     imageLink: '',
     imageName: '',
@@ -82,7 +82,7 @@ export default function HotelForm() {
   return (
     <div style={pageStyle}>
       <button
-        onClick={() => window.location.href = "/BankList"}
+        onClick={() => window.location.href = "/Hotel"}
         style={{ ...buttonStyle, position: 'fixed', top: 20, right: 20, zIndex: 1000 }}
       >
         সকল ব্যাংকের লিস্ট দেখুন।
@@ -132,7 +132,7 @@ export default function HotelForm() {
         </form>
 
         <button
-          onClick={() => window.location.href = "/BankList"}
+          onClick={() => window.location.href = "/Hotel"}
           style={{ ...buttonStyle, marginTop: '20px', width: '100%', background: 'linear-gradient(to right, #ff758c, #ff7eb3)' }}
         >
           👥 সকল প্রফাইল দেখুন

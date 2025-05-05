@@ -55,6 +55,13 @@ import DonorList from "./Tim/DonorList";
  import AdminDashboard from "./OneAdminDashboard/AdminDashboard";
 import BankForm from "./Banks/BankForm";
 import BankList from "./Banks/BankList";
+import Hotel from "./Hotel/Hotel";
+import HotelForm from "./Hotel/HotelForm";
+import Hotel_1 from "./Hotel/Hotel_1";
+
+
+
+
 
 
 export default function Router() {
@@ -115,6 +122,9 @@ export default function Router() {
       <Route path="/AdminDashboard" element={<AdminDashboard />} />
       <Route path="/BankForm" element={<BankForm />} />
       <Route path="/BankList" element={<BankList />} />
+      <Route path="/Hotel" element={<Hotel />} />
+      <Route path="/HotelForm" element={<HotelForm />} />
+      <Route path="/Hotel_1" element={<Hotel_1 />} />
 
 
 
