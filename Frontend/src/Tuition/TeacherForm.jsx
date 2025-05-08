@@ -40,7 +40,7 @@ const TeacherForm = () => {
 
   return (
     <div style={styles.page}>
-      <button style={styles.topButton} onClick={() => window.location.href = "/all-profiles"}>📋 সকল প্রফাইল দেখুন</button>
+      <button style={styles.topButton} onClick={() => window.location.href = "/TeacherList_1"}>📋 সকল প্রফাইল দেখুন</button>
 
       <form onSubmit={handleSubmit} style={styles.form}>
 

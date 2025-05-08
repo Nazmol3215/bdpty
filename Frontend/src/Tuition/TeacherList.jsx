@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const TeacherList = () => {
   const [teachers, setTeachers] = useState([]);
@@ -80,11 +81,14 @@ const TeacherList = () => {
 
   return (
     <div style={containerStyle}>
+      <p style={{ width: '100%', textAlign: 'center', marginBottom: '30px', fontSize: '18px' }}>
+        লস্টি করতে <Link to="/TeacherForm" style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer' }}>ক্লীক</Link> করুন
+      </p>
       {teachers.map((t) => (
         <div key={t._id} style={cardStyle}>
           <img src={t.imageLink} alt={t.imageName} style={imageStyle} />
           <h3 style={headingStyle}>{t.imageName}</h3>
-        <h3 style={{ fontSize: '17px', fontWeight: '600', color: '#333', textAlign: 'center', marginBottom: '15px', background: '#d9f2ff', padding: '8px', borderRadius: '8px' }}>📚 পড়াতে চাই</h3>
+          <h3 style={{ fontSize: '17px', fontWeight: '600', color: '#333', textAlign: 'center', marginBottom: '15px', background: '#d9f2ff', padding: '8px', borderRadius: '8px' }}>📚 পড়াতে চাই</h3>
           <div style={infoGridStyle}>
             <div style={infoItemStyle}>📛 লেখাপড়ার কলেজ: {t.title}</div>
             <div style={infoItemStyle}>🏷️ শিক্ষাগত যোগ্যতা: {t.position}</div>
