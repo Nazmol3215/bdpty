@@ -58,17 +58,18 @@ import BankList from "./Banks/BankList";
 import Hotel from "./Hotel/Hotel";
 import HotelForm from "./Hotel/HotelForm";
 import Hotel_1 from "./Hotel/Hotel_1";
-
-
-
-
-
+import TeacherForm from "./Tuition/TeacherForm";
+import TeacherList from "./Tuition/TeacherList";
+import TeacherList_1 from "./Tuition/TeacherList_1";
 
 export default function Router() {
   return (
     <>
     <BrowserRouter>
     <Routes>
+      <Route path="TeacherList_1" element={<TeacherList_1 />} />
+      <Route path="TeacherList" element={<TeacherList />} />
+      <Route path="TeacherForm" element={<TeacherForm />} />
       <Route path="/" element={<Home />} />
       <Route path="/Contact" element={<Contact />} />
       <Route path="/Profile" element={<Profile />} />

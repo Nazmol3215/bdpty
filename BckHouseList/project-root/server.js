@@ -12,8 +12,9 @@ const profileRoutes = require("./routes/profileRoutes");
 const donorRoutes = require('./routes/donorRoutes');
 const bankRoutes = require('./routes/bankRoutes');
 const adminRoutes = require('./routes/BankadminRoutes');
-
-
+const HotelRouts = require('./routes/HotelRouts'); // সঠিক নাম
+const teacherRoutes = require("./routes/teacherRoutes");
+// const adminRoutestecher = require("./routes/adminRoutestecher");
 
 
 
@@ -39,6 +40,11 @@ app.use("/api/profiles", profileRoutes);
 app.use('/api', donorRoutes);
 app.use('/bank', bankRoutes);
 app.use('/admin', adminRoutes);
+app.use('/hotel', HotelRouts); // সঠিক নাম
+// app.use('/api/hotel', hotelRoutes); // সঠিক নাম
+app.use("/api/teachers", teacherRoutes);
+// app.use("/api/admin", adminRoutestecher);
+
 
 // Server Start
 app.listen(PORT, () => {

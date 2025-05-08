@@ -14,6 +14,7 @@ const EnhancedServiceGrid = () => {
     { name: '🏥 হাসপাতাল', link: '/Hospitals_Bhaluka_1', desc: 'সেবা প্রদানকারী হাসপাতাল' },
     { name: '🏦 ব্যাংকসমূহ', link: '/BankList', desc: 'উপজেলার ব্যাংক তালিকা' },
     { name: '🩺 ডাক্তার নার্স', link: '/Doctors_Valukka_1', desc: 'স্বাস্থ্যসেবা প্রদানকারী' },
+    { name: '🩺 টিউশনি', link: '/TeacherList_1', desc: 'স্বাস্থ্যসেবা প্রদানকারী' },
     { name: '🚑 এ্যাম্বুলেন্স', link: '/Ambulance_1', desc: 'জরুরি পরিবহন সেবা' },
     { name: '🏨 হোটেলসমূহ', link: '/Hotel', desc: 'থাকার জায়গা' },
     { name: '📰 সাংবাদিকগন', link: '/JournalistsList_1', desc: 'সাংবাদিকদের তালিকা' },
@@ -38,7 +39,7 @@ const EnhancedServiceGrid = () => {
         backgroundColor: darkMode ? '#1e1e1e' : '#f8f9fa',
         minHeight: '100vh',
         transition: 'all 0.3s ease',
-        padding: '20px',
+        padding: '10px',
       }}
     >
       {/* 🟨 Hero Section */}
@@ -132,14 +133,14 @@ const EnhancedServiceGrid = () => {
                 <div
                   className="card text-center position-relative"
                   style={{
-                    border: '1px solid green',
+                    border: '2px solid green',
                     borderRadius: '20px',
                     background: darkMode
                       ? 'linear-gradient(135deg, #333, #444)'
                       : 'linear-gradient(135deg, #e0ffe0, #ffffff)',
                     boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
                     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                    padding: '10px',
+                    padding: '1px',
                     color: darkMode ? '#fff' : '#000',
                   }}
                   onMouseEnter={(e) => {
